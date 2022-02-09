@@ -10,18 +10,15 @@ var max_speed = 10.00
 func _ready():
 	pass 
 
-# warning-ignore:unused_argument
+
 func _physics_process(_delta):
 	position = position + velocity
 	velocity = velocity.normalized() * clamp(velocity.length(), 0, max_speed)
-	
-# warning-ignore:standalone_expression
-	$exhaust.hide
+	$Exhaust.hide()
 	
 	if Input.is_action_pressed("forward"):
 		velocity = velocity + Vector2(0,-speed).rotated(rotation)
-# warning-ignore:standalone_expression
-		$exhaust.show
+		$Exhaust.show()
 		
 	
 	if Input.is_action_pressed("left"):
